@@ -14,8 +14,6 @@ struct Config {
     static let version      = "v1"
     static let mode         = "api"
     static let bundleID     = Bundle.main.bundleIdentifier
-    
-
 }
 
 enum Segue: String, SegueType {

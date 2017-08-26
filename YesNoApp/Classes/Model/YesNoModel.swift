@@ -16,7 +16,7 @@ struct YesNoModel {
     static func createUser(complete: @escaping (UInt) -> ()) {
         //FIXME: debug
         if isSimulator() || true {
-            complete(UInt(123456789876543))
+            complete(UInt(123456789876544))
             return
         }
         
@@ -76,4 +76,15 @@ struct YesNoModel {
             BaseViewModel.sharedInstance.myStatusRequest.value = .error("ステータスの更新に失敗しました\n \(String(describing: error))")
         }
     }
+    
+    static func addPartner(userID: UInt) {
+        let (user, isNewRecord) = User.findOrCreatedBy(userID: userID)
+        if isNewRecord {
+            YesNoViewModel.sharedInstance.partners.value.append(user)
+        }
+    }
+    
+//    static func fetchPartnerList() {
+//        YesNoViewModel.sharedInstance.partners.value = RealmData.sharedInstance.realm.objects(User.self).map { $0 }
+//    }
 }

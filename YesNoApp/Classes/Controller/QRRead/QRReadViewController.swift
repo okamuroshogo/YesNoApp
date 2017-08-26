@@ -39,6 +39,7 @@ class QRReadViewController: UIViewController {
                             guard let userID = UInt(stringValue) else { return }
                             print("Found code: \(userID)")
                             YesNoViewModel.sharedInstance.partnerID.value = userID
+                            YesNoModel.addPartner(userID: userID)
                             self.dismiss(animated: true, completion: nil)
                             
                         }

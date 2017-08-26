@@ -11,6 +11,7 @@
 		080DC6111F515AC7002BF1C2 /* EFQRCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 080DC60F1F515ABF002BF1C2 /* EFQRCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		080DC6121F515AC8002BF1C2 /* MTBBarcodeScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080DC60E1F515ABF002BF1C2 /* MTBBarcodeScanner.framework */; };
 		080DC6131F515AC8002BF1C2 /* MTBBarcodeScanner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 080DC60E1F515ABF002BF1C2 /* MTBBarcodeScanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		080DC6151F516972002BF1C2 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080DC6141F516971002BF1C2 /* Realm.swift */; };
 		08801DAD1F510F3400BD4BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08801DAC1F510F3400BD4BEB /* AppDelegate.swift */; };
 		08801DB21F510F3400BD4BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08801DB01F510F3400BD4BEB /* Main.storyboard */; };
 		08801DB41F510F3400BD4BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08801DB31F510F3400BD4BEB /* Assets.xcassets */; };
@@ -105,6 +106,7 @@
 /* Begin PBXFileReference section */
 		080DC60E1F515ABF002BF1C2 /* MTBBarcodeScanner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MTBBarcodeScanner.framework; path = Carthage/Build/iOS/MTBBarcodeScanner.framework; sourceTree = "<group>"; };
 		080DC60F1F515ABF002BF1C2 /* EFQRCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EFQRCode.framework; path = Carthage/Build/iOS/EFQRCode.framework; sourceTree = "<group>"; };
+		080DC6141F516971002BF1C2 /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		08801DA91F510F3400BD4BEB /* YesNoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YesNoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08801DAC1F510F3400BD4BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08801DB11F510F3400BD4BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 		08801DE21F51102A00BD4BEB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				080DC6141F516971002BF1C2 /* Realm.swift */,
 				08801E251F511EF400BD4BEB /* YesNoModel.swift */,
 				08801DE31F51102B00BD4BEB /* Entity */,
 			);
@@ -783,6 +786,7 @@
 				08801E211F511E8100BD4BEB /* UIViewExtension.swift in Sources */,
 				08801E081F5119F300BD4BEB /* YesNo.swift in Sources */,
 				08801E041F5119F300BD4BEB /* Alamofire+SwiftyJSON.swift in Sources */,
+				080DC6151F516972002BF1C2 /* Realm.swift in Sources */,
 				08B0F4C11F5138030094C5A4 /* SplashViewController.swift in Sources */,
 				08B0F4CD1F5153510094C5A4 /* QRReadViewController.swift in Sources */,
 				08801E221F511E8100BD4BEB /* Utility.swift in Sources */,

@@ -9,7 +9,6 @@
 import Foundation
 import RealmSwift
 import Realm
-import SwiftyJSON
 
 class User: Object {
     @objc dynamic var id              : Int      = 0
@@ -20,14 +19,23 @@ class User: Object {
         super.init()
     }
     
-    convenience init(fromJson json: JSON!){
+    convenience init(userID: UInt){
         self.init()
-        self.id             = json["id"].intValue
+        self.id             = Int(userID)
     }
     
     func update(name: String) {
         self.name           = name
-        
+    }
+    
+    static func findOrCreatedBy(userID: UInt) -> (User, Bool) {
+        if let user = RealmData.sharedInstance.realm.objects(self).filter("id == \(userID)").first {
+            return (user, false)
+        } else {
+            let user = User(userID: userID)
+            RealmData.sharedInstance.save(data: user)
+            return (user, true)
+        }
     }
     
     required init(realm: RLMRealm, schema: RLMObjectSchema) {
@@ -47,4 +55,5 @@ class User: Object {
 //        return ["prefectureId"]
 //    }
 //
+    
 }

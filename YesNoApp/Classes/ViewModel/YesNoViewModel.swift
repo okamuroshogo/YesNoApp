@@ -22,11 +22,13 @@ final class YesNoViewModel {
     let partnerID: Observable<UInt?> = Observable(nil)
     let partnerStatus: Observable<Bool> = Observable(false)
     let myStatus: Observable<Bool> = Observable(false)
+    
+    let partners: Observable<[User]> = Observable([])
 
     init() {
         YesNoModel.createUser { userID in
             self.userID.value = userID
         }
+        self.partners.value = RealmData.sharedInstance.realm.objects(User.self).map { $0 }
     }
 }
-

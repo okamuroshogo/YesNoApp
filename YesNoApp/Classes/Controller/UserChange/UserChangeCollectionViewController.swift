@@ -22,6 +22,10 @@ class UserChangeCollectionViewController: UIViewController {
         let _ = self.registBtn.reactive.tap.observe { _ in
             self.dismiss(animated: true, completion: nil)
         }
+        
+        let _ = YesNoViewModel.sharedInstance.partners.observe { _ in
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -31,11 +35,16 @@ extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return YesNoViewModel.sharedInstance.partners.value.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        if indexPath.row == YesNoViewModel.sharedInstance.partners.value.count + 1 {
+            
+        } else {
+            
+        }
         return cell
     }
     
