@@ -13,26 +13,28 @@ import SwiftyJSON
 import Alamofire
 
 enum Router: URLRequestConvertible {
-    case splash(parameters :Parameters)
     case createUser(parameters :Parameters)
-    
+    case fetchStatus(parameters :Parameters)
+    case registStatus(parameters :Parameters)
     
     static let baseURLString = Config.host + "/" + Config.mode + "/" + Config.version
     
     var method: HTTPMethod {
         switch self {
-        case .splash:                   return .get
         case .createUser:                    return .post
-        
+        case .fetchStatus:                   return .get
+        case .registStatus:                  return .post
+
         }
     }
     
     var path: String {
         switch self {
-        case .splash:
-            return "/splash.json"
         case .createUser:
             return "/login.json"
+        case .fetchStatus, .registStatus:
+            return "/status.json"
+            
         }
     }
     
@@ -46,7 +48,8 @@ enum Router: URLRequestConvertible {
         
         switch self {
         case .createUser(let parameters),
-             .splash(let parameters)
+             .fetchStatus(let parameters),
+             .registStatus(let parameters)
             :
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
         default:

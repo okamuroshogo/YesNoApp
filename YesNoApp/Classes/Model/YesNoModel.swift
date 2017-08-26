@@ -37,4 +37,19 @@ struct YesNoModel {
             print(error ?? "error",status)
         })
     }
+    
+    /**
+     
+     */
+    static func fetchStatus() {
+        
+    }
+    
+    
+    /**
+     
+     */
+    static func registStatus() {
+        
+    }
 }
