@@ -224,7 +224,6 @@
 		08801DAB1F510F3400BD4BEB /* YesNoApp */ = {
 			isa = PBXGroup;
 			children = (
-				08801E151F511D0E00BD4BEB /* YesNoApp.entitlements */,
 				08801DDA1F510FB900BD4BEB /* Classes */,
 				08801DDB1F510FE200BD4BEB /* Resouces */,
 			);
@@ -283,6 +282,7 @@
 				08801DE91F51114500BD4BEB /* Router.swift */,
 				08801DE81F51114500BD4BEB /* YesNo.swift */,
 				08801DE51F51107400BD4BEB /* Info */,
+				08801E151F511D0E00BD4BEB /* YesNoApp.entitlements */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -317,11 +317,11 @@
 		08801DE01F510FFB00BD4BEB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				08B0F4BF1F5137EB0094C5A4 /* Splash */,
 				08B0F4C21F5138250094C5A4 /* Base */,
 				08801E2B1F512EE700BD4BEB /* UserChange */,
 				08B0F4C91F5152A00094C5A4 /* QRGenerate */,
 				08B0F4C81F51529C0094C5A4 /* QRRead */,
-				08B0F4BF1F5137EB0094C5A4 /* Splash */,
 				08801E2A1F512ED700BD4BEB /* YesNoStatus */,
 			);
 			path = Controller;
@@ -971,7 +971,7 @@
 			baseConfigurationReference = CD2DCB2E1E36A7CE6E4F22CF /* Pods-YesNoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = YesNoApp/YesNoApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = YesNoApp/Classes/Config/YesNoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J28AXKJXU7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -992,7 +992,7 @@
 			baseConfigurationReference = F6413783B30388153A788199 /* Pods-YesNoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = YesNoApp/YesNoApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = YesNoApp/Classes/Config/YesNoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J28AXKJXU7;
 				FRAMEWORK_SEARCH_PATHS = (

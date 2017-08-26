@@ -13,6 +13,7 @@ import Bond
 class UserChangeCollectionViewController: UIViewController {
     @IBOutlet weak var registBtn: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    private var selectIndex: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bind()
@@ -20,18 +21,36 @@ class UserChangeCollectionViewController: UIViewController {
     
     private func bind() {
         let _ = self.registBtn.reactive.tap.observe { _ in
-            self.dismiss(animated: true, completion: nil)
+            self.registPartner()
         }
         
         let _ = YesNoViewModel.sharedInstance.partners.observe { _ in
             self.collectionView.reloadData()
         }
     }
+    
+    private func registPartner() {
+        let alert: UIAlertController = UIAlertController(title: "パートナーを登録します", message: "保存してもいいですか？", preferredStyle:  .alert)
+       
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(segue: .toRead, sender: nil)
+        if indexPath.row == YesNoViewModel.sharedInstance.partners.value.count {
+            self.performSegue(segue: .toRead, sender: nil)
+        } else {
+            self.selectIndex = indexPath.row
+            self.collectionView.reloadData()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -40,10 +59,16 @@ extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        if indexPath.row == YesNoViewModel.sharedInstance.partners.value.count + 1 {
-            
+        cell.layer.borderWidth = 1.0
+        let addLabel = cell.viewWithTag(100) as? UILabel
+        if indexPath.row == YesNoViewModel.sharedInstance.partners.value.count {
+            addLabel?.isHidden = false
+            cell.backgroundColor = .white
         } else {
-            
+            addLabel?.isHidden = true
+            if selectIndex == indexPath.row {
+                cell.layer.borderWidth = 3.0
+            }
         }
         return cell
     }
