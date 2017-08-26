@@ -1,0 +1,9 @@
+{
+  "commitish" : "4.5.0",
+  "iOS" : [
+    {
+      "hash" : "b07b2d8829ab715cefe59a76e65ec93291cb47906983517b33d46245144cd7ac",
+      "name" : "Alamofire"
+    }
+  ]
+}
