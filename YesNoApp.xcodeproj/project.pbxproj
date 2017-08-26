@@ -45,7 +45,11 @@
 		08801E241F511EE100BD4BEB /* YesNoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08801E231F511EE100BD4BEB /* YesNoViewModel.swift */; };
 		08801E261F511EF400BD4BEB /* YesNoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08801E251F511EF400BD4BEB /* YesNoModel.swift */; };
 		08801E281F511F1100BD4BEB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08801E271F511F1100BD4BEB /* User.swift */; };
-		08801E291F5120E600BD4BEB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08801E1E1F511E2400BD4BEB /* SplashViewController.swift */; };
+		08801E2D1F512F2300BD4BEB /* YesNoStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08801E2C1F512F2300BD4BEB /* YesNoStatusViewController.swift */; };
+		08801E2F1F512F5500BD4BEB /* UserChangeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08801E2E1F512F5500BD4BEB /* UserChangeCollectionViewController.swift */; };
+		08B0F4C11F5138030094C5A4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0F4C01F5138010094C5A4 /* SplashViewController.swift */; };
+		08B0F4C41F5138360094C5A4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0F4C31F5138360094C5A4 /* BaseViewController.swift */; };
+		08B0F4C61F5138BE0094C5A4 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0F4C51F5138BE0094C5A4 /* BaseViewModel.swift */; };
 		4F839B6A2868D8700752B93E /* Pods_YesNoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF651261217DB69A135B8BE /* Pods_YesNoAppTests.framework */; };
 		E57BC75DC106D06E0DE9CD67 /* Pods_YesNoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9199B30FDD90A622B4DC54D3 /* Pods_YesNoAppUITests.framework */; };
 		E6972C7636309666CD33DA9C /* Pods_YesNoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D4FA446B9D20A1299E5E8 /* Pods_YesNoApp.framework */; };
@@ -123,10 +127,14 @@
 		08801E181F511DD100BD4BEB /* BoolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtension.swift; sourceTree = "<group>"; };
 		08801E191F511DD100BD4BEB /* SegueHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		08801E1A1F511DD100BD4BEB /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		08801E1E1F511E2400BD4BEB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = YesNoApp/Classes/Controller/Splash/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
 		08801E231F511EE100BD4BEB /* YesNoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesNoViewModel.swift; sourceTree = "<group>"; };
 		08801E251F511EF400BD4BEB /* YesNoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesNoModel.swift; sourceTree = "<group>"; };
 		08801E271F511F1100BD4BEB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		08801E2C1F512F2300BD4BEB /* YesNoStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesNoStatusViewController.swift; sourceTree = "<group>"; };
+		08801E2E1F512F5500BD4BEB /* UserChangeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChangeCollectionViewController.swift; sourceTree = "<group>"; };
+		08B0F4C01F5138010094C5A4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = YesNoApp/Classes/Controller/Splash/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
+		08B0F4C31F5138360094C5A4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		08B0F4C51F5138BE0094C5A4 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		0AF651261217DB69A135B8BE /* Pods_YesNoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YesNoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		187A00EDBD58F080006958BC /* Pods-YesNoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YesNoAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YesNoAppUITests/Pods-YesNoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2BD4128F66560E02596DC72D /* Pods-YesNoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YesNoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YesNoAppTests/Pods-YesNoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +251,7 @@
 		08801DDB1F510FE200BD4BEB /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
+				08B0F4C71F513F3A0094C5A4 /* DynamicIcons */,
 				08801DB31F510F3400BD4BEB /* Assets.xcassets */,
 			);
 			path = Resouces;
@@ -277,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				08801E231F511EE100BD4BEB /* YesNoViewModel.swift */,
+				08B0F4C51F5138BE0094C5A4 /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -291,7 +301,10 @@
 		08801DE01F510FFB00BD4BEB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				08801E1D1F511E0A00BD4BEB /* Splash */,
+				08B0F4C21F5138250094C5A4 /* Base */,
+				08B0F4BF1F5137EB0094C5A4 /* Splash */,
+				08801E2A1F512ED700BD4BEB /* YesNoStatus */,
+				08801E2B1F512EE700BD4BEB /* UserChange */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -338,13 +351,44 @@
 			path = Info;
 			sourceTree = "<group>";
 		};
-		08801E1D1F511E0A00BD4BEB /* Splash */ = {
+		08801E2A1F512ED700BD4BEB /* YesNoStatus */ = {
 			isa = PBXGroup;
 			children = (
-				08801E1E1F511E2400BD4BEB /* SplashViewController.swift */,
+				08801E2C1F512F2300BD4BEB /* YesNoStatusViewController.swift */,
+			);
+			path = YesNoStatus;
+			sourceTree = "<group>";
+		};
+		08801E2B1F512EE700BD4BEB /* UserChange */ = {
+			isa = PBXGroup;
+			children = (
+				08801E2E1F512F5500BD4BEB /* UserChangeCollectionViewController.swift */,
+			);
+			path = UserChange;
+			sourceTree = "<group>";
+		};
+		08B0F4BF1F5137EB0094C5A4 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				08B0F4C01F5138010094C5A4 /* SplashViewController.swift */,
 			);
 			name = Splash;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		08B0F4C21F5138250094C5A4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				08B0F4C31F5138360094C5A4 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		08B0F4C71F513F3A0094C5A4 /* DynamicIcons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DynamicIcons;
 			sourceTree = "<group>";
 		};
 		6A26086C216C26027AFE9340 /* Frameworks */ = {
@@ -703,14 +747,18 @@
 				08801E211F511E8100BD4BEB /* UIViewExtension.swift in Sources */,
 				08801E081F5119F300BD4BEB /* YesNo.swift in Sources */,
 				08801E041F5119F300BD4BEB /* Alamofire+SwiftyJSON.swift in Sources */,
+				08B0F4C11F5138030094C5A4 /* SplashViewController.swift in Sources */,
 				08801E221F511E8100BD4BEB /* Utility.swift in Sources */,
+				08B0F4C41F5138360094C5A4 /* BaseViewController.swift in Sources */,
 				08801E061F5119F300BD4BEB /* Config.swift in Sources */,
 				08801E241F511EE100BD4BEB /* YesNoViewModel.swift in Sources */,
 				08801E281F511F1100BD4BEB /* User.swift in Sources */,
 				08801E071F5119F300BD4BEB /* Router.swift in Sources */,
 				08801E051F5119F300BD4BEB /* APIService.swift in Sources */,
-				08801E291F5120E600BD4BEB /* SplashViewController.swift in Sources */,
 				08801E261F511EF400BD4BEB /* YesNoModel.swift in Sources */,
+				08801E2F1F512F5500BD4BEB /* UserChangeCollectionViewController.swift in Sources */,
+				08801E2D1F512F2300BD4BEB /* YesNoStatusViewController.swift in Sources */,
+				08B0F4C61F5138BE0094C5A4 /* BaseViewModel.swift in Sources */,
 				08801E0B1F511A5900BD4BEB /* UserDefaults.swift in Sources */,
 				08801DAD1F510F3400BD4BEB /* AppDelegate.swift in Sources */,
 				08801E201F511E8100BD4BEB /* SegueHandlerType.swift in Sources */,

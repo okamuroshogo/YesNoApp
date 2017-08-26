@@ -22,6 +22,7 @@ struct APIService {
         print(params)
         Alamofire.request(Router.createUser(parameters: params)).responseSwiftyJSON{(request, response, jsonData, error) in
             guard let res = response else {
+                errorHandler(error, -500)
                 print("error! no response", error!, request)
                 return
             }
@@ -40,6 +41,7 @@ struct APIService {
         Alamofire.request(Router.fetchStatus(parameters: params)).responseSwiftyJSON{(request, response, jsonData, error) in
             guard let res = response else {
                 print("error! no response", error!, request)
+                errorHandler(error, -500)
                 return
             }
             if res.statusCode < 200 || res.statusCode >= 300 {
@@ -57,6 +59,7 @@ struct APIService {
         Alamofire.request(Router.registStatus(parameters: params)).responseSwiftyJSON{(request, response, jsonData, error) in
             guard let res = response else {
                 print("error! no response", error!, request)
+                errorHandler(error, -500)
                 return
             }
             if res.statusCode < 200 || res.statusCode >= 300 {

@@ -22,5 +22,3 @@ struct Config {
 enum Segue: String, SegueType {
     case toMain
 }
-
-

@@ -18,8 +18,11 @@ final class YesNoViewModel {
         return Static.instance
     }
     
-    let userID: Observable<String?> = Observable(nil)
-    
+    let userID: Observable<UInt?> = Observable(nil)
+    let partnerID: Observable<UInt?> = Observable(nil)
+    let partnerStatus: Observable<Bool> = Observable(false)
+    let myStatus: Observable<Bool> = Observable(false)
+
     init() {
         YesNoModel.createUser { userID in
             self.userID.value = userID
