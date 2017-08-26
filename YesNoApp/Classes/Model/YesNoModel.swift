@@ -11,7 +11,7 @@ import Foundation
 struct YesNoModel {
     
     /**
-     
+     ユーザーを作成する
      */
     static func createUser(complete: @escaping (String) -> ()) {
         guard let token = Config.getPreferenceValue(key: .KEY_DEVICE_TOKEN) as? String else {
@@ -33,23 +33,33 @@ struct YesNoModel {
         APIService.createUser(uuid: token, completionHandler: { userID in
             Config.setPreferenceValue(key: .KEY_USER_ID, value: userID)
             complete(userID)
-        }, errorHandler: { error , status in
-            print(error ?? "error",status)
+        }, errorHandler: { error , statusCode in
+            print("createUser error: " + "\(String(describing: error))" ,statusCode)
         })
     }
     
     /**
-     
+     ステータスを取得する
      */
-    static func fetchStatus() {
-        
+    static func fetchStatus(userID: UInt, complete: @escaping (Bool) -> ()) {
+        APIService.fetchStatus(userID: userID, completionHandler: { status in
+            complete(status)
+        }) { (error, statusCode) in
+            print("fetchStatus error: " + "\(String(describing: error))" ,statusCode)
+        }
     }
     
     
     /**
-     
+     ステータスを更新する
      */
-    static func registStatus() {
-        
+    static func registStatus(status: Bool, complete: @escaping () -> ()) {
+        guard let myUserID = YesNoViewModel.sharedInstance.userID.value,
+            let id = UInt(myUserID) else { return }
+        APIService.registStatus(status: status, myUserID: id, completionHandler: {
+            complete()
+        }) { (error, statusCode) in
+            print("registStatus error: " + "\(String(describing: error))" ,statusCode)
+        }
     }
 }

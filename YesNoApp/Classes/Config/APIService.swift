@@ -52,8 +52,8 @@ struct APIService {
         }
     }
 
-    static func registStatus(myUserID: UInt, completionHandler: @escaping () -> (), errorHandler: @escaping (Error?, Int) -> ()) {
-        let params: [String:String] = ["user_id": "\(myUserID)"]
+    static func registStatus(status: Bool, myUserID: UInt, completionHandler: @escaping () -> (), errorHandler: @escaping (Error?, Int) -> ()) {
+        let params: [String:String] = ["user_id": "\(myUserID)", "status": status.description]
         Alamofire.request(Router.registStatus(parameters: params)).responseSwiftyJSON{(request, response, jsonData, error) in
             guard let res = response else {
                 print("error! no response", error!, request)
