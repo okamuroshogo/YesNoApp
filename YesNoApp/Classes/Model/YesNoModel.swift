@@ -14,6 +14,12 @@ struct YesNoModel {
      ユーザーを作成する
      */
     static func createUser(complete: @escaping (UInt) -> ()) {
+        //FIXME: debug
+        if isSimulator() || true {
+            complete(UInt(123456789876543))
+            return
+        }
+        
         guard let token = Config.getPreferenceValue(key: .KEY_DEVICE_TOKEN) as? String else {
             //TODO: device tokenをpermission scopeで再取得
             print("not found device token")
@@ -23,12 +29,6 @@ struct YesNoModel {
         if let id = userID {
             guard let uint = UInt(id) else { return }
             complete(uint)
-            return
-        }
-        
-        //FIXME: debug
-        if isSimulator() || true {
-            complete(UInt(123456789876543))
             return
         }
         

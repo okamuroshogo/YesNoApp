@@ -1,9 +1,0 @@
-{
-  "commitish" : "1.1.1",
-  "iOS" : [
-    {
-      "hash" : "16733c758521c8040f599fd5b4f5fdd8c89b9955c783871b8889746a8c8ff3d9",
-      "name" : "PermissionScope"
-    }
-  ]
-}

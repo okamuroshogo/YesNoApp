@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class User: Object {
     @objc dynamic var id              : Int      = 0
-    @objc dynamic var uuid            : String    = ""
+    @objc dynamic var name            : String    = ""
     
     
     required init() {
@@ -23,11 +23,10 @@ class User: Object {
     convenience init(fromJson json: JSON!){
         self.init()
         self.id             = json["id"].intValue
-        self.update(fromJson: json)
     }
     
-    func update(fromJson json: JSON) {
-        self.uuid           = json["uuid"].stringValue
+    func update(name: String) {
+        self.name           = name
         
     }
     

@@ -25,9 +25,9 @@ class UserChangeCollectionViewController: UIViewController {
     }
 }
 
-extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        self.performSegue(segue: .toRead, sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -37,5 +37,11 @@ extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = (UIScreen.main.bounds.width - 40 ) / 2.0
+        let height = width
+        return CGSize(width: width, height: height)
     }
 }
