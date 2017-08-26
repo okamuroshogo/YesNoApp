@@ -55,7 +55,7 @@ struct YesNoModel {
             YesNoViewModel.sharedInstance.partnerStatus.value = status
             BaseViewModel.sharedInstance.partnerStatusRequest.value = .none
         }) { (error, statusCode) in
-            BaseViewModel.sharedInstance.partnerStatusRequest.value = .error("ステータスの更新に失敗しました")
+            BaseViewModel.sharedInstance.partnerStatusRequest.value = .error("ステータスの更新に失敗しました\n \(String(describing: error))")
         }
     }
     
@@ -73,7 +73,7 @@ struct YesNoModel {
             BaseViewModel.sharedInstance.partnerStatusRequest.value = .none
         }) { (error, statusCode) in
             YesNoViewModel.sharedInstance.myStatus.value = !status
-            BaseViewModel.sharedInstance.myStatusRequest.value = .error("ステータスの更新に失敗しました")
+            BaseViewModel.sharedInstance.myStatusRequest.value = .error("ステータスの更新に失敗しました\n \(String(describing: error))")
         }
     }
 }

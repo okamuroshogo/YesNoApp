@@ -50,6 +50,8 @@
 		08B0F4C11F5138030094C5A4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0F4C01F5138010094C5A4 /* SplashViewController.swift */; };
 		08B0F4C41F5138360094C5A4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0F4C31F5138360094C5A4 /* BaseViewController.swift */; };
 		08B0F4C61F5138BE0094C5A4 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0F4C51F5138BE0094C5A4 /* BaseViewModel.swift */; };
+		08B0F4CB1F5153420094C5A4 /* QRGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0F4CA1F5153420094C5A4 /* QRGenerateViewController.swift */; };
+		08B0F4CD1F5153510094C5A4 /* QRReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0F4CC1F5153510094C5A4 /* QRReadViewController.swift */; };
 		4F839B6A2868D8700752B93E /* Pods_YesNoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF651261217DB69A135B8BE /* Pods_YesNoAppTests.framework */; };
 		E57BC75DC106D06E0DE9CD67 /* Pods_YesNoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9199B30FDD90A622B4DC54D3 /* Pods_YesNoAppUITests.framework */; };
 		E6972C7636309666CD33DA9C /* Pods_YesNoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D4FA446B9D20A1299E5E8 /* Pods_YesNoApp.framework */; };
@@ -135,6 +137,8 @@
 		08B0F4C01F5138010094C5A4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = YesNoApp/Classes/Controller/Splash/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
 		08B0F4C31F5138360094C5A4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		08B0F4C51F5138BE0094C5A4 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		08B0F4CA1F5153420094C5A4 /* QRGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerateViewController.swift; sourceTree = "<group>"; };
+		08B0F4CC1F5153510094C5A4 /* QRReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReadViewController.swift; sourceTree = "<group>"; };
 		0AF651261217DB69A135B8BE /* Pods_YesNoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YesNoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		187A00EDBD58F080006958BC /* Pods-YesNoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YesNoAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YesNoAppUITests/Pods-YesNoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2BD4128F66560E02596DC72D /* Pods-YesNoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YesNoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YesNoAppTests/Pods-YesNoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -302,9 +306,11 @@
 			isa = PBXGroup;
 			children = (
 				08B0F4C21F5138250094C5A4 /* Base */,
+				08801E2B1F512EE700BD4BEB /* UserChange */,
+				08B0F4C91F5152A00094C5A4 /* QRGenerate */,
+				08B0F4C81F51529C0094C5A4 /* QRRead */,
 				08B0F4BF1F5137EB0094C5A4 /* Splash */,
 				08801E2A1F512ED700BD4BEB /* YesNoStatus */,
-				08801E2B1F512EE700BD4BEB /* UserChange */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -389,6 +395,22 @@
 			children = (
 			);
 			path = DynamicIcons;
+			sourceTree = "<group>";
+		};
+		08B0F4C81F51529C0094C5A4 /* QRRead */ = {
+			isa = PBXGroup;
+			children = (
+				08B0F4CC1F5153510094C5A4 /* QRReadViewController.swift */,
+			);
+			path = QRRead;
+			sourceTree = "<group>";
+		};
+		08B0F4C91F5152A00094C5A4 /* QRGenerate */ = {
+			isa = PBXGroup;
+			children = (
+				08B0F4CA1F5153420094C5A4 /* QRGenerateViewController.swift */,
+			);
+			path = QRGenerate;
 			sourceTree = "<group>";
 		};
 		6A26086C216C26027AFE9340 /* Frameworks */ = {
@@ -748,12 +770,14 @@
 				08801E081F5119F300BD4BEB /* YesNo.swift in Sources */,
 				08801E041F5119F300BD4BEB /* Alamofire+SwiftyJSON.swift in Sources */,
 				08B0F4C11F5138030094C5A4 /* SplashViewController.swift in Sources */,
+				08B0F4CD1F5153510094C5A4 /* QRReadViewController.swift in Sources */,
 				08801E221F511E8100BD4BEB /* Utility.swift in Sources */,
 				08B0F4C41F5138360094C5A4 /* BaseViewController.swift in Sources */,
 				08801E061F5119F300BD4BEB /* Config.swift in Sources */,
 				08801E241F511EE100BD4BEB /* YesNoViewModel.swift in Sources */,
 				08801E281F511F1100BD4BEB /* User.swift in Sources */,
 				08801E071F5119F300BD4BEB /* Router.swift in Sources */,
+				08B0F4CB1F5153420094C5A4 /* QRGenerateViewController.swift in Sources */,
 				08801E051F5119F300BD4BEB /* APIService.swift in Sources */,
 				08801E261F511EF400BD4BEB /* YesNoModel.swift in Sources */,
 				08801E2F1F512F5500BD4BEB /* UserChangeCollectionViewController.swift in Sources */,

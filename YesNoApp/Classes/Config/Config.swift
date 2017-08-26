@@ -21,6 +21,8 @@ struct Config {
 enum Segue: String, SegueType {
     case toMain
     case toPartner
+    case toQR
+    case toRead
 }
 
 enum RequestState {    
