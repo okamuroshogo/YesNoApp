@@ -18,8 +18,8 @@ final class BaseViewModel {
         return Static.instance
     }
     
-    let myStatusError: Observable<String?> = Observable(nil)
-    let partnerStatusError: Observable<String?> = Observable(nil)
+    let myStatusRequest: Observable<RequestState> = Observable(.none)
+    let partnerStatusRequest: Observable<RequestState> = Observable(.none)
 }
 
 

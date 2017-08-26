@@ -19,11 +19,19 @@ class BaseViewController: UIViewController {
     }
     
     private func bind() {
-        let _ = BaseViewModel.sharedInstance.myStatusError.observeNext { message in
-            self.showErrorAlert(message: message)
+        let _ = BaseViewModel.sharedInstance.myStatusRequest.observeNext { state in
+            switch state {
+            case .error(let message):
+                self.showErrorAlert(message: message)
+            default: return
+            }
         }
-        let _ = BaseViewModel.sharedInstance.partnerStatusError.observeNext { message in
-            self.showErrorAlert(message: message)
+        let _ = BaseViewModel.sharedInstance.partnerStatusRequest.observeNext { state in
+            switch state {
+            case .error(let message):
+                self.showErrorAlert(message: message)
+            default: return
+            }
         }
     }
     
@@ -32,8 +40,7 @@ class BaseViewController: UIViewController {
         self.errorAlert.addAction(defaultAction)
     }
     
-    private func showErrorAlert(message: String?) {
-        guard let message = message else { return }
+    private func showErrorAlert(message: String) {
         self.errorAlert.message = message
         self.present(self.errorAlert, animated: true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {

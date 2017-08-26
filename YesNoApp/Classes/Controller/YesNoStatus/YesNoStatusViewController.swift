@@ -15,6 +15,7 @@ class YesNoStatusViewController: BaseViewController {
     @IBOutlet weak var partnerStatusLabel: UILabel!
     @IBOutlet weak var fetchPartnerBtn: UIButton!
     @IBOutlet weak var myStatusBtn: UIButton!
+    @IBOutlet weak var addPartnerBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bind()
@@ -27,6 +28,9 @@ class YesNoStatusViewController: BaseViewController {
         let _ = self.fetchPartnerBtn.reactive.tap.observe { _ in
             YesNoModel.fetchStatus()
         }
+        let _ = self.addPartnerBtn.reactive.tap.observe { _ in
+            self.performSegue(segue: .toPartner, sender: nil)
+        }
         let _ = YesNoViewModel.sharedInstance.myStatus.observeNext { status in
             self.myStatusLabel.text = status ? "yes" : "no"
             self.view.backgroundColor = status ? UIColor(named: "YesPinkColor") : UIColor(named: "NoBlueColor")
@@ -37,5 +41,6 @@ class YesNoStatusViewController: BaseViewController {
 //            UIApplication.shared.setAlternateIconName(iconName, completionHandler: { error in print(error) })
 
         }
+        
     }
 }

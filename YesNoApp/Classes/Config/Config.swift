@@ -18,7 +18,30 @@ struct Config {
 
 }
 
-
 enum Segue: String, SegueType {
     case toMain
+    case toPartner
+}
+
+enum RequestState {    
+    case none
+    case requesting
+    case error(String)
+    func isRequesting() -> Bool {
+        switch self {
+        case .requesting:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    func isError() -> Bool {
+        switch self {
+        case .error(_):
+            return true
+        default:
+            return false
+        }
+    }
 }

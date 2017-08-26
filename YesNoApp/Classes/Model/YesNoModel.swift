@@ -45,14 +45,17 @@ struct YesNoModel {
      ステータスを取得する
      */
     static func fetchStatus() {
+        if BaseViewModel.sharedInstance.partnerStatusRequest.value.isRequesting() { return }
+        BaseViewModel.sharedInstance.partnerStatusRequest.value = .requesting
         guard let partnerID = YesNoViewModel.sharedInstance.partnerID.value else {
-            BaseViewModel.sharedInstance.partnerStatusError.value = "パートナーを登録してください"
+            BaseViewModel.sharedInstance.partnerStatusRequest.value = .error("パートナーを登録してください")
             return
         }
         APIService.fetchStatus(userID: partnerID, completionHandler: { status in
             YesNoViewModel.sharedInstance.partnerStatus.value = status
+            BaseViewModel.sharedInstance.partnerStatusRequest.value = .none
         }) { (error, statusCode) in
-            BaseViewModel.sharedInstance.partnerStatusError.value = "ステータスの更新に失敗しました"
+            BaseViewModel.sharedInstance.partnerStatusRequest.value = .error("ステータスの更新に失敗しました")
         }
     }
     
@@ -61,13 +64,16 @@ struct YesNoModel {
      ステータスを更新する
      */
     static func registStatus() {
+        if BaseViewModel.sharedInstance.myStatusRequest.value.isRequesting() { return }
+        BaseViewModel.sharedInstance.myStatusRequest.value = .requesting
         let status = !YesNoViewModel.sharedInstance.myStatus.value
         YesNoViewModel.sharedInstance.myStatus.value = status
         guard let myUserID = YesNoViewModel.sharedInstance.userID.value else { return }
         APIService.registStatus(status: status, myUserID: myUserID, completionHandler: {
+            BaseViewModel.sharedInstance.partnerStatusRequest.value = .none
         }) { (error, statusCode) in
             YesNoViewModel.sharedInstance.myStatus.value = !status
-            BaseViewModel.sharedInstance.myStatusError.value = "ステータスの更新に失敗しました"
+            BaseViewModel.sharedInstance.myStatusRequest.value = .error("ステータスの更新に失敗しました")
         }
     }
 }

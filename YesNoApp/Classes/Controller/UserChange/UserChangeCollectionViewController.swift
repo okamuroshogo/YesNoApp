@@ -8,11 +8,20 @@
 
 import Foundation
 import UIKit
+import Bond
 
 class UserChangeCollectionViewController: UIViewController {
+    @IBOutlet weak var registBtn: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bind()
+    }
+    
+    private func bind() {
+        let _ = self.registBtn.reactive.tap.observe { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
@@ -23,7 +32,6 @@ extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

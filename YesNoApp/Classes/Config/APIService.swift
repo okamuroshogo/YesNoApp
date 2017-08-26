@@ -10,16 +10,11 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-enum RequestState: UInt {
-    case None = 0
-    case Requesting
-    case Error
-}
+
 struct APIService {
     //login
     static func createUser(uuid: String, completionHandler: @escaping (String) -> (), errorHandler: @escaping (Error?, Int) -> ()) {
         let params: [String:String] = ["uuid":uuid]
-        print(params)
         Alamofire.request(Router.createUser(parameters: params)).responseSwiftyJSON{(request, response, jsonData, error) in
             guard let res = response else {
                 errorHandler(error, -500)
