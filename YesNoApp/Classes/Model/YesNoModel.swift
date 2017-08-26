@@ -77,14 +77,13 @@ struct YesNoModel {
         }
     }
     
+    /**
+     パートナーを追加する
+     */
     static func addPartner(userID: UInt) {
         let (user, isNewRecord) = User.findOrCreatedBy(userID: userID)
         if isNewRecord {
             YesNoViewModel.sharedInstance.partners.value.append(user)
         }
     }
-    
-//    static func fetchPartnerList() {
-//        YesNoViewModel.sharedInstance.partners.value = RealmData.sharedInstance.realm.objects(User.self).map { $0 }
-//    }
 }
