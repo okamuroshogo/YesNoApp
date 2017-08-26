@@ -19,7 +19,7 @@ final class YesNoViewModel {
     }
     
     let userID: Observable<UInt?> = Observable(nil)
-    let partnerID: Observable<UInt?> = Observable(nil)
+    let myPartner: Observable<User?> = Observable(nil)
     let partnerStatus: Observable<Bool> = Observable(false)
     let myStatus: Observable<Bool> = Observable(false)
     
@@ -30,5 +30,9 @@ final class YesNoViewModel {
             self.userID.value = userID
         }
         self.partners.value = RealmData.sharedInstance.realm.objects(User.self).map { $0 }
+        
+        if let partnerID = Config.getPreferenceValue(key: .KEY_PARTNER_ID) as? String {
+            self.myPartner.value = RealmData.sharedInstance.realm.objects(User.self).filter("id == \(partnerID)").first
+        }
     }
 }

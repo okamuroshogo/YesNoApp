@@ -31,8 +31,8 @@ struct APIService {
         }
     }
 
-    static func fetchStatus(userID: UInt, completionHandler: @escaping (Bool) -> (), errorHandler: @escaping (Error?, Int) -> ()) {
-        let params: [String:String] = ["user_id": "\(userID)"]
+    static func fetchStatus(partner: User, completionHandler: @escaping (Bool) -> (), errorHandler: @escaping (Error?, Int) -> ()) {
+        let params: [String:String] = ["user_id": "\(partner.id)"]
         Alamofire.request(Router.fetchStatus(parameters: params)).responseSwiftyJSON{(request, response, jsonData, error) in
             guard let res = response else {
                 print("error! no response", error!, request)

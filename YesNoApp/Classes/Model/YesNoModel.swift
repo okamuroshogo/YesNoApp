@@ -16,7 +16,7 @@ struct YesNoModel {
     static func createUser(complete: @escaping (UInt) -> ()) {
         //FIXME: debug
         if isSimulator() || true {
-            complete(UInt(123456789876544))
+            complete(UInt(123456789876545))
             return
         }
         
@@ -47,11 +47,11 @@ struct YesNoModel {
     static func fetchStatus() {
         if BaseViewModel.sharedInstance.partnerStatusRequest.value.isRequesting() { return }
         BaseViewModel.sharedInstance.partnerStatusRequest.value = .requesting
-        guard let partnerID = YesNoViewModel.sharedInstance.partnerID.value else {
+        guard let myPartner = YesNoViewModel.sharedInstance.myPartner.value else {
             BaseViewModel.sharedInstance.partnerStatusRequest.value = .error("パートナーを登録してください")
             return
         }
-        APIService.fetchStatus(userID: partnerID, completionHandler: { status in
+        APIService.fetchStatus(partner: myPartner, completionHandler: { status in
             YesNoViewModel.sharedInstance.partnerStatus.value = status
             BaseViewModel.sharedInstance.partnerStatusRequest.value = .none
         }) { (error, statusCode) in

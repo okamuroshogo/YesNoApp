@@ -16,7 +16,17 @@ class UserChangeCollectionViewController: UIViewController {
     private var selectIndex: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setup()
         self.bind()
+    }
+    
+    private func setup() {
+        guard let partnerID = YesNoViewModel.sharedInstance.myPartner.value?.id else { return }
+        for (index, partner) in YesNoViewModel.sharedInstance.partners.value.enumerated() {
+            if partner.id == partnerID {
+                self.selectIndex = index
+            }
+        }
     }
     
     private func bind() {
@@ -30,10 +40,12 @@ class UserChangeCollectionViewController: UIViewController {
     }
     
     private func registPartner() {
-        let alert: UIAlertController = UIAlertController(title: "パートナーを登録します", message: "保存してもいいですか？", preferredStyle:  .alert)
-       
+        let alert: UIAlertController = UIAlertController(title: "パートナーを〇〇さんで登録します", message: "保存してもいいですか？", preferredStyle:  .alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler:{
             (action: UIAlertAction!) -> Void in
+            let partner =  YesNoViewModel.sharedInstance.partners.value[self.selectIndex]
+            YesNoViewModel.sharedInstance.myPartner.value = partner
+            Config.setPreferenceValue(key: .KEY_PARTNER_ID, value: "\(partner.id)")
             self.dismiss(animated: true, completion: nil)
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
@@ -66,7 +78,7 @@ extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollec
             cell.backgroundColor = .white
         } else {
             addLabel?.isHidden = true
-            if selectIndex == indexPath.row {
+            if indexPath.row == self.selectIndex {
                 cell.layer.borderWidth = 3.0
             }
         }
@@ -74,7 +86,7 @@ extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = (UIScreen.main.bounds.width - 40 ) / 2.0
+        let width: CGFloat = ( UIScreen.main.bounds.width - 40 ) / 2.0
         let height = width
         return CGSize(width: width, height: height)
     }
