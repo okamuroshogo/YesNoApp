@@ -14,6 +14,8 @@ struct Config {
     static let version      = "v1"
     static let mode         = "api"
     static let bundleID     = Bundle.main.bundleIdentifier
+    static let yesColor     = UIColor(red: 0.9215686275, green: 0.6352941176, blue: 0.7490196078, alpha: 1.0)
+    static let noColor      = UIColor(red: 0.4705882353, green: 0.8235294118, blue: 0.862745098, alpha: 1.0)
 }
 
 enum Segue: String, SegueType {

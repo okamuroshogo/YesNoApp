@@ -11,7 +11,7 @@ import UIKit
 import Bond
 
 class UserChangeCollectionViewController: UIViewController {
-    @IBOutlet weak var canselBtn: UIButton!
+//    @IBOutlet weak var canselBtn: UIButton!
     @IBOutlet weak var registBtn: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     private var selectIndex: Int = 0
@@ -39,9 +39,9 @@ class UserChangeCollectionViewController: UIViewController {
             self.collectionView.reloadData()
         }
         
-        let _ = self.canselBtn.reactive.tap.observe { _ in
-            self.dismiss(animated: true, completion: nil)
-        }
+//        let _ = self.canselBtn.reactive.tap.observe { _ in
+//            self.dismiss(animated: true, completion: nil)
+//        }
     }
     
     private func registPartner() {
