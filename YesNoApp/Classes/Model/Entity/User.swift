@@ -32,7 +32,7 @@ class User: Object {
     }
     
     static func findOrCreatedBy(uuid: String) -> (User, Bool) {
-        if let user = RealmData.sharedInstance.realm.objects(self).filter("id == \(uuid)").first {
+        if let user = RealmData.sharedInstance.realm.objects(User.self).filter("uuid = '\(uuid)'").first {
             return (user, false)
         } else {
             let user = User(uuid: uuid)
