@@ -10,7 +10,7 @@ import UIKit
 
 // swiftlint:disable type_name
 struct Config {
-    static let host         = "https://"
+    static let host         = "https://a93d0y86qc.execute-api.ap-northeast-1.amazonaws.com/dev"
     static let version      = "v1"
     static let mode         = "api"
     static let bundleID     = Bundle.main.bundleIdentifier

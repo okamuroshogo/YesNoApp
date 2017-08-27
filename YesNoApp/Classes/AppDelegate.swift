@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func saveDevicetoken(deviceToken: Data) {
         let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
         Config.setPreferenceValue(key: .KEY_DEVICE_TOKEN, value: token)
+        YesNoViewModel.sharedInstance.uuid.value = token
     }
 
 }

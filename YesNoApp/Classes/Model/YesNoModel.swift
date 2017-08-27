@@ -15,7 +15,7 @@ struct YesNoModel {
      */
     static func createUser(complete: @escaping (String) -> ()) {
         //FIXME: debug
-        if isSimulator() || true {
+        if isSimulator() {
             complete("qwertyuiop")
             return
         }
@@ -49,7 +49,7 @@ struct YesNoModel {
             BaseViewModel.sharedInstance.partnerStatusRequest.value = .error("パートナーを登録してください")
             return
         }
-        APIService.fetchStatus(partner: myPartner, completionHandler: { status in
+        APIService.fetchStatus(partners: [myPartner], completionHandler: { status in
             YesNoViewModel.sharedInstance.partnerStatus.value = status
             BaseViewModel.sharedInstance.partnerStatusRequest.value = .none
         }) { (error, statusCode) in

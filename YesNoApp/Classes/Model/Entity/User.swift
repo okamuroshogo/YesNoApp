@@ -14,7 +14,7 @@ class User: Object {
     @objc dynamic var id              : Int      = 0
     @objc dynamic var uuid            : String    = ""
     @objc dynamic var name            : String    = ""
-    
+    @objc dynamic var status          : Bool      = false
     
     required init() {
         super.init()
@@ -25,6 +25,7 @@ class User: Object {
         let next = (RealmData.sharedInstance.realm.objects(User.self).sorted(byKeyPath: "id", ascending: false).first?.id ?? 0) + 1
         self.id             = next
         self.uuid           = uuid
+        self.status = false
     }
     
     func update(name: String) {

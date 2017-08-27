@@ -26,9 +26,9 @@ final class YesNoViewModel {
     let partners: Observable<[User]> = Observable([])
 
     init() {
-        YesNoModel.createUser { uuid in
-            self.uuid.value = uuid
-        }
+//        YesNoModel.createUser { uuid in
+//            self.uuid.value = uuid
+//        }
         self.partners.value = RealmData.sharedInstance.realm.objects(User.self).map { $0 }
         
         if let partnerID = Config.getPreferenceValue(key: .KEY_PARTNER_ID) as? String {

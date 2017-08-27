@@ -22,7 +22,7 @@ enum Router: URLRequestConvertible {
     var method: HTTPMethod {
         switch self {
         case .createUser:                    return .post
-        case .fetchStatus:                   return .get
+        case .fetchStatus:                   return .post
         case .registStatus:                  return .post
 
         }
@@ -31,10 +31,11 @@ enum Router: URLRequestConvertible {
     var path: String {
         switch self {
         case .createUser:
-            return "/login.json"
-        case .fetchStatus, .registStatus:
-            return "/status.json"
-            
+            return "/login"
+        case .fetchStatus:
+            return "/status-check"
+         case .registStatus:
+            return "/status"
         }
     }
     

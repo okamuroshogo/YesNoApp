@@ -20,7 +20,10 @@ final class SplashViewController: UIViewController {
         super.viewDidAppear(animated)
         
         YesNoViewModel.sharedInstance.uuid.observeNext { uuid in
-            self.performSegue(segue: .toMain, sender: nil)
+            if uuid == nil { return }
+            YesNoModel.createUser(complete: { _ in
+                self.performSegue(segue: .toMain, sender: nil)
+            })
         }
     }
 }
