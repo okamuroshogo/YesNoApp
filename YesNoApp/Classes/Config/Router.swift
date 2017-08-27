@@ -33,7 +33,7 @@ enum Router: URLRequestConvertible {
         case .createUser:
             return "/login"
         case .fetchStatus:
-            return "/status-check"
+            return "/status_check"
          case .registStatus:
             return "/status"
         }
@@ -52,7 +52,12 @@ enum Router: URLRequestConvertible {
              .fetchStatus(let parameters),
              .registStatus(let parameters)
             :
-            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+//            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+//            do {
+         urlRequest = try! Alamofire.URLEncoding().encode(urlRequest as! URLRequestConvertible, with: parameters)
+//            } catch {
+                //Handle error
+//            }
         default:
             break
         }

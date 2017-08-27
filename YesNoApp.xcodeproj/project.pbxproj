@@ -107,6 +107,15 @@
 		080DC60E1F515ABF002BF1C2 /* MTBBarcodeScanner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MTBBarcodeScanner.framework; path = Carthage/Build/iOS/MTBBarcodeScanner.framework; sourceTree = "<group>"; };
 		080DC60F1F515ABF002BF1C2 /* EFQRCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EFQRCode.framework; path = Carthage/Build/iOS/EFQRCode.framework; sourceTree = "<group>"; };
 		080DC6141F516971002BF1C2 /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		081C9A251F527A440013D5F9 /* no-Icon-60@x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-Icon-60@x1.png"; sourceTree = "<group>"; };
+		081C9A261F527A440013D5F9 /* no-Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-Icon-60@2x.png"; sourceTree = "<group>"; };
+		081C9A271F527A450013D5F9 /* no-Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-Icon-60@3x.png"; sourceTree = "<group>"; };
+		081C9A281F527A880013D5F9 /* yes-Icon-60@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yes-Icon-60@1x.png"; sourceTree = "<group>"; };
+		081C9A291F527A880013D5F9 /* yes-Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yes-Icon-60@3x.png"; sourceTree = "<group>"; };
+		081C9A2A1F527A880013D5F9 /* yes-Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yes-Icon-60@2x.png"; sourceTree = "<group>"; };
+		081C9A2B1F527C1E0013D5F9 /* appIcon60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon60@3x.png"; sourceTree = "<group>"; };
+		081C9A2C1F527C1E0013D5F9 /* appIcon60@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon60@1x.png"; sourceTree = "<group>"; };
+		081C9A2D1F527C1E0013D5F9 /* appIcon60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon60@2x.png"; sourceTree = "<group>"; };
 		08801DA91F510F3400BD4BEB /* YesNoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YesNoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08801DAC1F510F3400BD4BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08801DB11F510F3400BD4BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -406,6 +415,15 @@
 		08B0F4C71F513F3A0094C5A4 /* DynamicIcons */ = {
 			isa = PBXGroup;
 			children = (
+				081C9A281F527A880013D5F9 /* yes-Icon-60@1x.png */,
+				081C9A2A1F527A880013D5F9 /* yes-Icon-60@2x.png */,
+				081C9A291F527A880013D5F9 /* yes-Icon-60@3x.png */,
+				081C9A251F527A440013D5F9 /* no-Icon-60@x1.png */,
+				081C9A261F527A440013D5F9 /* no-Icon-60@2x.png */,
+				081C9A271F527A450013D5F9 /* no-Icon-60@3x.png */,
+				081C9A2C1F527C1E0013D5F9 /* appIcon60@1x.png */,
+				081C9A2D1F527C1E0013D5F9 /* appIcon60@2x.png */,
+				081C9A2B1F527C1E0013D5F9 /* appIcon60@3x.png */,
 			);
 			path = DynamicIcons;
 			sourceTree = "<group>";

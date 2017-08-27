@@ -42,7 +42,8 @@ class YesNoStatusViewController: BaseViewController {
         }
         let _ = YesNoViewModel.sharedInstance.partnerStatus.observeNext { status in
             self.partnerStatusLabel.text = status ? "yes" : "no"
-//            UIApplication.shared.setAlternateIconName(iconName, completionHandler: { error in print(error) })
+            let iconName = status ? "yes-Icon-60" : "no-Icon-60"
+            UIApplication.shared.setAlternateIconName(iconName, completionHandler: { error in print(error) })
 
         }
         

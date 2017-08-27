@@ -37,8 +37,8 @@ struct APIService {
     }
 
     static func fetchStatus(partners: [User], completionHandler: @escaping (Bool) -> (), errorHandler: @escaping (Error?, Int) -> ()) {
-        let arr = partners.map{ $0.uuid }
-        let params: [String:String] = ["device_tokens": arr.description]
+        let arr = partners.map{ ["device_token": $0.uuid] }
+        let params: [String:Any] = ["users": arr]
         Alamofire.request(Router.fetchStatus(parameters: params)).responseSwiftyJSON{(request, response, jsonData, error) in
             guard let res = response else {
                 print("error! no response", error!, request)
@@ -72,7 +72,7 @@ struct APIService {
     
 
     static func registStatus(status: Bool, myUUID: String, completionHandler: @escaping () -> (), errorHandler: @escaping (Error?, Int) -> ()) {
-        let params: [String:String] = ["uuid": "\(myUUID)", "status": status.description]
+        let params: [String:String] = ["device_token": "\(myUUID)", "status": status.description]
         Alamofire.request(Router.registStatus(parameters: params)).responseSwiftyJSON{(request, response, jsonData, error) in
             guard let res = response else {
                 print("error! no response", error!, request)
