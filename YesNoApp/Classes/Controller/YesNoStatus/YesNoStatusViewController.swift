@@ -37,7 +37,7 @@ class YesNoStatusViewController: BaseViewController {
         }
         let _ = YesNoViewModel.sharedInstance.myStatus.observeNext { status in
             self.myStatusLabel.text = status ? "yes" : "no"
-            self.view.backgroundColor = status ? UIColor(named: "YesPinkColor") : UIColor(named: "NoBlueColor")
+//            rself.view.backgroundColor = status ? UIColor(named: "YesPinkColor") : UIColor(named: "NoBlueColor")
 
         }
         let _ = YesNoViewModel.sharedInstance.partnerStatus.observeNext { status in

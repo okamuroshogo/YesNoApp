@@ -13,10 +13,10 @@ struct YesNoModel {
     /**
      ユーザーを作成する
      */
-    static func createUser(complete: @escaping (UInt) -> ()) {
+    static func createUser(complete: @escaping (String) -> ()) {
         //FIXME: debug
         if isSimulator() || true {
-            complete(UInt(123456789876545))
+            complete("qwertyuiop")
             return
         }
         
@@ -25,17 +25,15 @@ struct YesNoModel {
             print("not found device token")
             return
         }
-        let userID = Config.getPreferenceValue(key: .KEY_USER_ID) as? String
-        if let id = userID {
-            guard let uint = UInt(id) else { return }
-            complete(uint)
+        let isRegist = Config.getPreferenceValue(key: .KEY_IS_REGIST) as? Bool
+        if isRegist ?? false {
+            complete(token)
             return
         }
         
-        APIService.createUser(uuid: token, completionHandler: { userID in
-            Config.setPreferenceValue(key: .KEY_USER_ID, value: userID)
-            guard let uint = UInt(userID) else { return }
-            complete(uint)
+        APIService.createUser(uuid: token, completionHandler: { uuid in
+            Config.setPreferenceValue(key: .KEY_IS_REGIST, value: true)
+            complete(uuid)
         }, errorHandler: { error , statusCode in
             print("createUser error: " + "\(String(describing: error))" ,statusCode)
         })
@@ -68,8 +66,8 @@ struct YesNoModel {
         BaseViewModel.sharedInstance.myStatusRequest.value = .requesting
         let status = !YesNoViewModel.sharedInstance.myStatus.value
         YesNoViewModel.sharedInstance.myStatus.value = status
-        guard let myUserID = YesNoViewModel.sharedInstance.userID.value else { return }
-        APIService.registStatus(status: status, myUserID: myUserID, completionHandler: {
+        guard let myUUID = YesNoViewModel.sharedInstance.uuid.value else { return }
+        APIService.registStatus(status: status, myUUID: myUUID, completionHandler: {
             BaseViewModel.sharedInstance.partnerStatusRequest.value = .none
         }) { (error, statusCode) in
             YesNoViewModel.sharedInstance.myStatus.value = !status
@@ -80,8 +78,8 @@ struct YesNoModel {
     /**
      パートナーを追加する
      */
-    static func addPartner(userID: UInt) {
-        let (user, isNewRecord) = User.findOrCreatedBy(userID: userID)
+    static func addPartner(uuid: String) {
+        let (user, isNewRecord) = User.findOrCreatedBy(uuid: uuid)
         if isNewRecord {
             YesNoViewModel.sharedInstance.partners.value.append(user)
         }

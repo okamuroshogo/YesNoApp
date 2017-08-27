@@ -11,9 +11,8 @@ import Foundation
 
 enum PreferenceKey: String {
     case KEY_DEVICE_TOKEN       = "USER_DEVICE_TOKEN"
-    case KEY_USER_ID            = "MY_USER_ID"
     case KEY_PARTNER_ID         = "MY_PARTNER_ID"
-
+    case KEY_IS_REGIST          = "USER_REGIST"
 }
 //UserDefault
 extension Config {

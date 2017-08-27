@@ -16,10 +16,10 @@ class QRGenerateViewController: UIViewController {
     @IBOutlet weak var closeBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let userID =  YesNoViewModel.sharedInstance.userID.value else { return }
-        print(userID)
+        guard let uuid =  YesNoViewModel.sharedInstance.uuid.value else { return }
+        print(uuid)
         guard let tryImage = EFQRCode.generate(
-            content: "\(userID)",
+            content: "\(uuid)",
             watermark: UIImage(named: "yesno-sample-icon")?.toCGImage()
             ) else { return }
         self.qrcodeImageView.image = UIImage(cgImage: tryImage)

@@ -26,8 +26,8 @@ struct APIService {
                 errorHandler(error, res.statusCode)
                 return
             }
-            let userId = jsonData["user_id"].stringValue
-            completionHandler(userId)
+            let uuid = jsonData["uuid"].stringValue
+            completionHandler(uuid)
         }
     }
 
@@ -49,8 +49,8 @@ struct APIService {
         }
     }
 
-    static func registStatus(status: Bool, myUserID: UInt, completionHandler: @escaping () -> (), errorHandler: @escaping (Error?, Int) -> ()) {
-        let params: [String:String] = ["user_id": "\(myUserID)", "status": status.description]
+    static func registStatus(status: Bool, myUUID: String, completionHandler: @escaping () -> (), errorHandler: @escaping (Error?, Int) -> ()) {
+        let params: [String:String] = ["uuid": "\(myUUID)", "status": status.description]
         Alamofire.request(Router.registStatus(parameters: params)).responseSwiftyJSON{(request, response, jsonData, error) in
             guard let res = response else {
                 print("error! no response", error!, request)

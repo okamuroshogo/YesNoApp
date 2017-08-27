@@ -19,7 +19,7 @@ final class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        YesNoViewModel.sharedInstance.userID.observeNext { userID in
+        YesNoViewModel.sharedInstance.uuid.observeNext { uuid in
             self.performSegue(segue: .toMain, sender: nil)
         }
     }

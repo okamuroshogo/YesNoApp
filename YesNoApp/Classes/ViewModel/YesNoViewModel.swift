@@ -18,7 +18,7 @@ final class YesNoViewModel {
         return Static.instance
     }
     
-    let userID: Observable<UInt?> = Observable(nil)
+    let uuid: Observable<String?> = Observable(nil)
     let myPartner: Observable<User?> = Observable(nil)
     let partnerStatus: Observable<Bool> = Observable(false)
     let myStatus: Observable<Bool> = Observable(false)
@@ -26,8 +26,8 @@ final class YesNoViewModel {
     let partners: Observable<[User]> = Observable([])
 
     init() {
-        YesNoModel.createUser { userID in
-            self.userID.value = userID
+        YesNoModel.createUser { uuid in
+            self.uuid.value = uuid
         }
         self.partners.value = RealmData.sharedInstance.realm.objects(User.self).map { $0 }
         

@@ -35,10 +35,9 @@ class QRReadViewController: UIViewController {
                     try self.scanner?.startScanning(resultBlock: { codes in
                         guard let codes = codes else { return }
                         for code in codes {
-                            let stringValue = code.stringValue!
-                            guard let userID = UInt(stringValue) else { return }
-                            print("Found code: \(userID)")
-                            YesNoModel.addPartner(userID: userID)
+                            let uuid = code.stringValue!
+                            print("Found code: \(uuid)")
+                            YesNoModel.addPartner(uuid: uuid)
                             self.dismiss(animated: true, completion: nil)
                             
                         }
