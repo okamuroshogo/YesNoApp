@@ -12,6 +12,15 @@
 		080DC6121F515AC8002BF1C2 /* MTBBarcodeScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080DC60E1F515ABF002BF1C2 /* MTBBarcodeScanner.framework */; };
 		080DC6131F515AC8002BF1C2 /* MTBBarcodeScanner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 080DC60E1F515ABF002BF1C2 /* MTBBarcodeScanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		080DC6151F516972002BF1C2 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080DC6141F516971002BF1C2 /* Realm.swift */; };
+		081C9A2E1F529CEA0013D5F9 /* yes-Icon-60@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 081C9A281F527A880013D5F9 /* yes-Icon-60@1x.png */; };
+		081C9A2F1F529CEA0013D5F9 /* yes-Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 081C9A2A1F527A880013D5F9 /* yes-Icon-60@2x.png */; };
+		081C9A301F529CEA0013D5F9 /* yes-Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 081C9A291F527A880013D5F9 /* yes-Icon-60@3x.png */; };
+		081C9A311F529CEA0013D5F9 /* no-Icon-60@x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 081C9A251F527A440013D5F9 /* no-Icon-60@x1.png */; };
+		081C9A321F529CEA0013D5F9 /* no-Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 081C9A261F527A440013D5F9 /* no-Icon-60@2x.png */; };
+		081C9A331F529CEA0013D5F9 /* no-Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 081C9A271F527A450013D5F9 /* no-Icon-60@3x.png */; };
+		081C9A341F529CEA0013D5F9 /* appIcon60@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 081C9A2C1F527C1E0013D5F9 /* appIcon60@1x.png */; };
+		081C9A351F529CEA0013D5F9 /* appIcon60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 081C9A2D1F527C1E0013D5F9 /* appIcon60@2x.png */; };
+		081C9A361F529CEA0013D5F9 /* appIcon60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 081C9A2B1F527C1E0013D5F9 /* appIcon60@3x.png */; };
 		08801DAD1F510F3400BD4BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08801DAC1F510F3400BD4BEB /* AppDelegate.swift */; };
 		08801DB21F510F3400BD4BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08801DB01F510F3400BD4BEB /* Main.storyboard */; };
 		08801DB41F510F3400BD4BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08801DB31F510F3400BD4BEB /* Assets.xcassets */; };
@@ -601,6 +610,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				081C9A2E1F529CEA0013D5F9 /* yes-Icon-60@1x.png in Resources */,
+				081C9A2F1F529CEA0013D5F9 /* yes-Icon-60@2x.png in Resources */,
+				081C9A301F529CEA0013D5F9 /* yes-Icon-60@3x.png in Resources */,
+				081C9A311F529CEA0013D5F9 /* no-Icon-60@x1.png in Resources */,
+				081C9A321F529CEA0013D5F9 /* no-Icon-60@2x.png in Resources */,
+				081C9A331F529CEA0013D5F9 /* no-Icon-60@3x.png in Resources */,
+				081C9A341F529CEA0013D5F9 /* appIcon60@1x.png in Resources */,
+				081C9A351F529CEA0013D5F9 /* appIcon60@2x.png in Resources */,
+				081C9A361F529CEA0013D5F9 /* appIcon60@3x.png in Resources */,
 				08801E091F5119FF00BD4BEB /* Info.plist in Resources */,
 				08801DB71F510F3400BD4BEB /* LaunchScreen.storyboard in Resources */,
 				08801DB41F510F3400BD4BEB /* Assets.xcassets in Resources */,

@@ -68,7 +68,7 @@ struct YesNoModel {
         YesNoViewModel.sharedInstance.myStatus.value = status
         guard let myUUID = YesNoViewModel.sharedInstance.uuid.value else { return }
         APIService.registStatus(status: status, myUUID: myUUID, completionHandler: {
-            BaseViewModel.sharedInstance.partnerStatusRequest.value = .none
+            BaseViewModel.sharedInstance.myStatusRequest.value = .none
         }) { (error, statusCode) in
             YesNoViewModel.sharedInstance.myStatus.value = !status
             BaseViewModel.sharedInstance.myStatusRequest.value = .error("ステータスの更新に失敗しました\n \(String(describing: error))")

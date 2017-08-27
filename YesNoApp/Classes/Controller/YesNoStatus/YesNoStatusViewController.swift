@@ -38,15 +38,18 @@ class YesNoStatusViewController: BaseViewController {
         let _ = YesNoViewModel.sharedInstance.myStatus.observeNext { status in
             self.myStatusLabel.text = status ? "yes" : "no"
 //            rself.view.backgroundColor = status ? UIColor(named: "YesPinkColor") : UIColor(named: "NoBlueColor")
-
         }
         let _ = YesNoViewModel.sharedInstance.partnerStatus.observeNext { status in
+            print(YesNoViewModel.sharedInstance.partnerStatus.value)
+            print(status)
+            if YesNoViewModel.sharedInstance.provisionPartnerStatus == status { return }
+            YesNoViewModel.sharedInstance.provisionPartnerStatus = status
+            YesNoViewModel.sharedInstance.partnerStatus.value = status
             self.partnerStatusLabel.text = status ? "yes" : "no"
             let iconName = status ? "yes-Icon-60" : "no-Icon-60"
-            UIApplication.shared.setAlternateIconName(iconName, completionHandler: { error in print(error) })
-
+            UIApplication.shared.setAlternateIconName(iconName, completionHandler: { error in
+                print(error)
+            })
         }
-        
-        
     }
 }

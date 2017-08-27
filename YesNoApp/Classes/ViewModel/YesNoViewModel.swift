@@ -24,7 +24,8 @@ final class YesNoViewModel {
     let myStatus: Observable<Bool> = Observable(false)
     
     let partners: Observable<[User]> = Observable([])
-
+    var provisionPartnerStatus: Bool = false
+    
     init() {
 //        YesNoModel.createUser { uuid in
 //            self.uuid.value = uuid
