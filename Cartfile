@@ -1,6 +1,6 @@
 github "jdg/MBProgressHUD" ~> 1.0.0
 github "nickoneill/PermissionScope" ~> 1.0
-github "SwiftBond/Bond" "swift-4"
+github "SwiftBond/Bond"
 
 github "Alamofire/Alamofire"
 github "SwiftyJSON/SwiftyJSON"

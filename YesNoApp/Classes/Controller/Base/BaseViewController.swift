@@ -14,6 +14,7 @@ class BaseViewController: UIViewController {
     var errorAlert: UIAlertController = UIAlertController(title: "error", message: "", preferredStyle: .alert)
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.firstExplain()
         self.serup()
         self.bind()
     }
@@ -47,5 +48,13 @@ class BaseViewController: UIViewController {
                 self.errorAlert.dismiss(animated: true, completion: nil)
             }
         }
+    }
+}
+
+private extension BaseViewController {
+    func firstExplain() {
+        let isFirst = Config.getPreferenceValue(key: .KEY_IS_FIRST) as? Bool ?? false
+        if isFirst { return }
+        self.performSegue(segue: .toHowto, sender: nil)
     }
 }

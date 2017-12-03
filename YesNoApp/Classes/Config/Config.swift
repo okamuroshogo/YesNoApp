@@ -23,6 +23,7 @@ enum Segue: String, SegueType {
     case toPartner
     case toQR
     case toRead
+    case toHowto
 }
 
 enum RequestState {    

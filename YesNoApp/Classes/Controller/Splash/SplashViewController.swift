@@ -25,6 +25,10 @@ final class SplashViewController: UIViewController {
                 self.performSegue(segue: .toMain, sender: nil)
             })
         }
+        
+        if isSimulator() {
+            YesNoViewModel.sharedInstance.uuid.value = "aaaaaaaaa"
+        }
     }
 }
 

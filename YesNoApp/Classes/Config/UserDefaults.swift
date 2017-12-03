@@ -13,6 +13,7 @@ enum PreferenceKey: String {
     case KEY_DEVICE_TOKEN       = "USER_DEVICE_TOKEN"
     case KEY_PARTNER_ID         = "MY_PARTNER_ID"
     case KEY_IS_REGIST          = "USER_REGIST"
+    case KEY_IS_FIRST           = "USER_IS_FIRST"
 }
 //UserDefault
 extension Config {
