@@ -17,7 +17,7 @@ class QRGenerateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let uuid =  YesNoViewModel.sharedInstance.uuid.value else { return }
-        print(uuid)
+//        print(uuid)
         guard let tryImage = EFQRCode.generate(
             content: "\(uuid)",
             watermark: UIImage(named: "yesno-sample-icon")?.toCGImage()
