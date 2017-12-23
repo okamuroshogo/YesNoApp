@@ -54,7 +54,7 @@ class BaseViewController: UIViewController {
 private extension BaseViewController {
     func firstExplain() {
         let isFirst = Config.getPreferenceValue(key: .KEY_IS_FIRST) as? Bool ?? false
-//        if isFirst { return }
+        if isFirst { return }
         self.performSegue(segue: .toHowto, sender: nil)
     }
 }

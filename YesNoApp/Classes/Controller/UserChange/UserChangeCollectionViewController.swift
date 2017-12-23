@@ -45,6 +45,7 @@ class UserChangeCollectionViewController: UIViewController {
     }
     
     private func registPartner() {
+        if YesNoViewModel.sharedInstance.partners.value.count <= 0 { return }
         let alert: UIAlertController = UIAlertController(title: "パートナーを〇〇さんで登録します", message: "保存してもいいですか？", preferredStyle:  .alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler:{
             (action: UIAlertAction!) -> Void in
@@ -81,7 +82,9 @@ extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollec
         if indexPath.row == YesNoViewModel.sharedInstance.partners.value.count {
             addLabel?.isHidden = false
             cell.backgroundColor = .white
+            cell.alpha = 0.5
         } else {
+            cell.alpha = 1.0
             addLabel?.isHidden = true
             if indexPath.row == self.selectIndex {
                 cell.layer.borderWidth = 3.0

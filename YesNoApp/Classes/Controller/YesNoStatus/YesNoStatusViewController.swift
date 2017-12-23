@@ -38,8 +38,8 @@ class YesNoStatusViewController: BaseViewController {
             if YesNoViewModel.sharedInstance.provisionPartnerStatus == status { return }
             YesNoViewModel.sharedInstance.provisionPartnerStatus = status
             YesNoViewModel.sharedInstance.partnerStatus.value = status
-
-            self.view.backgroundColor = status ? Config.yesColor : Config.noColor
+            let image = status ? UIImage(named: "your_yes") : UIImage(named: "your_no")
+            self.fetchPartnerBtn.setImage(image, for: .normal)
             let iconName = status ? "yes-Icon-60" : "no-Icon-60"
             UIApplication.shared.setAlternateIconName(iconName, completionHandler: nil)
         }
