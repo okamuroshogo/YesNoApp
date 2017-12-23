@@ -51,6 +51,16 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Your camera is used to take photos.</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Your bluetooth is used to take photos.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Your calender is used to take photos.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Your contacts is used to take photos.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your microphone is used to take photos.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Your motion is used to take photos.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
