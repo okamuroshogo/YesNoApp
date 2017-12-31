@@ -27,4 +27,9 @@ class QRGenerateViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GATrackingManager.sendScreenTracking(screenName: "qr_generate")
+    }
 }

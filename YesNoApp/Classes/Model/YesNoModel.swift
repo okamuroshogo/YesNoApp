@@ -78,8 +78,8 @@ struct YesNoModel {
     /**
      パートナーを追加する
      */
-    static func addPartner(uuid: String) {
-        let (user, isNewRecord) = User.findOrCreatedBy(uuid: uuid)
+    static func addPartner(uuid: String, name: String) {
+        let (user, isNewRecord) = User.findOrCreatedBy(uuid: uuid, name: name)
         if isNewRecord {
             YesNoViewModel.sharedInstance.partners.value.append(user)
         }

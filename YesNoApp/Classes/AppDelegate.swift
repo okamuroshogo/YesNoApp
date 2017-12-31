@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.setApperrance()
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+            if !granted {
+                self.saveDevicetoken(deviceToken: UUID().uuidString)
+            }
             DispatchQueue.main.async(execute: {
                 UIApplication.shared.registerForRemoteNotifications()
                 UNUserNotificationCenter.current().delegate = self
@@ -25,16 +28,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         return true
     }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        self.saveDevicetoken(deviceToken: deviceToken)
-    }
 
-    //デバイストークンを取得する
-    func saveDevicetoken(deviceToken: Data) {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
-        Config.setPreferenceValue(key: .KEY_DEVICE_TOKEN, value: token)
-        YesNoViewModel.sharedInstance.uuid.value = token
+        self.saveDevicetoken(deviceToken: token)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        self.saveDevicetoken(deviceToken: UUID().uuidString)
+    }
+    
+    //デバイストークンを取得する
+    func saveDevicetoken(deviceToken: String) {
+        Config.setPreferenceValue(key: .KEY_DEVICE_TOKEN, value: deviceToken)
+        YesNoViewModel.sharedInstance.uuid.value = deviceToken
     }
 
 }

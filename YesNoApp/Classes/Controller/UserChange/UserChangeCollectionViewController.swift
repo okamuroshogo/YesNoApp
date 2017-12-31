@@ -21,6 +21,11 @@ class UserChangeCollectionViewController: UIViewController {
         self.bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GATrackingManager.sendScreenTracking(screenName: "user_change")
+    }
+    
     private func setup() {
         guard let partnerID = YesNoViewModel.sharedInstance.myPartner.value?.id else { return }
         for (index, partner) in YesNoViewModel.sharedInstance.partners.value.enumerated() {
@@ -38,15 +43,12 @@ class UserChangeCollectionViewController: UIViewController {
         let _ = YesNoViewModel.sharedInstance.partners.observe { _ in
             self.collectionView.reloadData()
         }
-        
-//        let _ = self.canselBtn.reactive.tap.observe { _ in
-//            self.dismiss(animated: true, completion: nil)
-//        }
     }
     
     private func registPartner() {
         if YesNoViewModel.sharedInstance.partners.value.count <= 0 { return }
-        let alert: UIAlertController = UIAlertController(title: "パートナーを〇〇さんで登録します", message: "保存してもいいですか？", preferredStyle:  .alert)
+        let user = YesNoViewModel.sharedInstance.partners.value[self.selectIndex]
+        let alert: UIAlertController = UIAlertController(title: "パートナーを\(user.name)で登録します", message: "保存してもいいですか？", preferredStyle:  .alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler:{
             (action: UIAlertAction!) -> Void in
             let partner =  YesNoViewModel.sharedInstance.partners.value[self.selectIndex]
@@ -59,12 +61,36 @@ class UserChangeCollectionViewController: UIViewController {
         alert.addAction(defaultAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    private func partnerName() {
+        let alertController = UIAlertController(title: "追加するパートナーの名前を\n入力してください", message: "", preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "確定", style: .default, handler: {
+            alert -> Void in
+            guard let nameField = alertController.textFields?.first,
+                let name = nameField.text else { return }
+            if name.count <= 0 || name == "" || name == " " || name == "　" { return }
+            YesNoViewModel.sharedInstance.registName = name
+            self.performSegue(segue: .toRead, sender: nil)
+        })
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .default, handler: {
+            (action : UIAlertAction!) -> Void in
+            
+        })
+        
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "パートナーの名前"
+        }
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
 extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == YesNoViewModel.sharedInstance.partners.value.count {
-            self.performSegue(segue: .toRead, sender: nil)
+            self.partnerName()
         } else {
             self.selectIndex = indexPath.row
             self.collectionView.reloadData()
@@ -79,11 +105,18 @@ extension UserChangeCollectionViewController: UICollectionViewDelegate, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         cell.layer.borderWidth = 1.0
         let addLabel = cell.viewWithTag(100) as? UILabel
+        let nameLabel = cell.viewWithTag(101) as? UILabel
         if indexPath.row == YesNoViewModel.sharedInstance.partners.value.count {
+            nameLabel?.isHidden = true
             addLabel?.isHidden = false
             cell.backgroundColor = .white
             cell.alpha = 0.5
         } else {
+            let user = YesNoViewModel.sharedInstance.partners.value[indexPath.row]
+            nameLabel?.isHidden = false
+            print("user.name")
+            print(user.name)
+            nameLabel?.text = user.name
             cell.alpha = 1.0
             addLabel?.isHidden = true
             if indexPath.row == self.selectIndex {

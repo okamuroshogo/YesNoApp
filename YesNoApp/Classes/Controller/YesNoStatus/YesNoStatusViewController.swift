@@ -16,11 +16,17 @@ class YesNoStatusViewController: BaseViewController {
     @IBOutlet weak var qrGenerateBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GATrackingManager.sendScreenTracking(screenName: "yes_no_status")
     }
    
     private func bind() {
+        YesNoModel.fetchStatus()
+
         let _ = self.myStatusBtn.reactive.tap.observe { _ in
             YesNoModel.registStatus()
         }
@@ -38,10 +44,12 @@ class YesNoStatusViewController: BaseViewController {
             if YesNoViewModel.sharedInstance.provisionPartnerStatus == status { return }
             YesNoViewModel.sharedInstance.provisionPartnerStatus = status
             YesNoViewModel.sharedInstance.partnerStatus.value = status
-            let image = status ? UIImage(named: "your_yes") : UIImage(named: "your_no")
-            self.fetchPartnerBtn.setImage(image, for: .normal)
-            let iconName = status ? "yes-Icon-60" : "no-Icon-60"
-            UIApplication.shared.setAlternateIconName(iconName, completionHandler: nil)
+            DispatchQueue.main.async(execute: {
+                let image = status ? UIImage(named: "your_yes") : UIImage(named: "your_no")
+                self.fetchPartnerBtn.setImage(image, for: .normal)
+                let iconName = status ? "yes-Icon-60" : "no-Icon-60"
+                UIApplication.shared.setAlternateIconName(iconName, completionHandler: nil)
+            })
         }
     }
 }

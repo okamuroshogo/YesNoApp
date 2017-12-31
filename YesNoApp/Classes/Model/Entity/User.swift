@@ -20,11 +20,12 @@ class User: Object {
         super.init()
     }
     
-    convenience init(uuid: String){
+    convenience init(uuid: String, name: String){
         self.init()
         let next = (RealmData.sharedInstance.realm.objects(User.self).sorted(byKeyPath: "id", ascending: false).first?.id ?? 0) + 1
         self.id             = next
         self.uuid           = uuid
+        self.name           = name
         self.status = false
     }
     
@@ -32,11 +33,11 @@ class User: Object {
         self.name           = name
     }
     
-    static func findOrCreatedBy(uuid: String) -> (User, Bool) {
+    static func findOrCreatedBy(uuid: String, name: String) -> (User, Bool) {
         if let user = RealmData.sharedInstance.realm.objects(User.self).filter("uuid = '\(uuid)'").first {
             return (user, false)
         } else {
-            let user = User(uuid: uuid)
+            let user = User(uuid: uuid, name: name)
             RealmData.sharedInstance.save(data: user)
             return (user, true)
         }

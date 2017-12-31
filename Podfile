@@ -7,6 +7,7 @@ target 'YesNoApp' do
 
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Google/Analytics'
   # Pods for YesNoApp
 
   target 'YesNoAppTests' do

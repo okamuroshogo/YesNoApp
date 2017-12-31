@@ -18,6 +18,11 @@ class HowtoViewController: UIViewController {
         self.bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GATrackingManager.sendScreenTracking(screenName: "howto")
+    }
+    
     private func bind() {
         self.startBtn.reactive.tap.observe { _ in
             self.dismiss(animated: true, completion: nil)

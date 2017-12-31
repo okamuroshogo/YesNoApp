@@ -11,11 +11,10 @@ import MTBBarcodeScanner
 import Bond
 
 class QRReadViewController: UIViewController {
-    
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet var previewView: UIView!
     var scanner: MTBBarcodeScanner?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +36,7 @@ class QRReadViewController: UIViewController {
                         for code in codes {
                             let uuid = code.stringValue!
                             print("Found code: \(uuid)")
-                            YesNoModel.addPartner(uuid: uuid)
+                            YesNoModel.addPartner(uuid: uuid, name: YesNoViewModel.sharedInstance.registName)
                             self.dismiss(animated: true, completion: nil)
                             
                         }
@@ -56,5 +55,10 @@ class QRReadViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.scanner?.stopScanning()
         super.viewWillDisappear(animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GATrackingManager.sendScreenTracking(screenName: "qr_read")
     }
 }

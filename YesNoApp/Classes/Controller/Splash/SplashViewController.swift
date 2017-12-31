@@ -16,6 +16,11 @@ final class SplashViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GATrackingManager.sendScreenTracking(screenName: "splash")
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -26,9 +31,9 @@ final class SplashViewController: UIViewController {
             })
         }
         
-        if isSimulator() {
-            YesNoViewModel.sharedInstance.uuid.value = "aaaaaaaaa"
-        }
+//        if isSimulator() {
+//            YesNoViewModel.sharedInstance.uuid.value = "aaaaaaaaa"
+//        }
     }
 }
 
